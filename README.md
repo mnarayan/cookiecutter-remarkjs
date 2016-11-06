@@ -13,7 +13,7 @@ See the [official remark.js website](http://remarkjs.com) for what's so cool abo
 1. Install the latest Cookiecutter
   * `pip install -U cookiecutter`
 2. Create a presentation from _this_ Cookiecutter
-  * `cookiecutter gh:malikoth/cookiecutter-remarkjs`
+  * `cookiecutter gh:mnarayan/cookiecutter-remarkjs`
 3. Edit content into `slides.md`.  See [the remark.js wiki](https://github.com/gnab/remark/wiki/Markdown) for help setting up your slides
 4. Customize any css in `slides.css`
 5. Serve your presentation over HTTP using one of the following methods (or others)

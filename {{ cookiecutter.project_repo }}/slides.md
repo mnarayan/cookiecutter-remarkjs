@@ -19,4 +19,6 @@ layout: true
 
 # The End
 
+Follow me on {{ cookiecutter.twitter_account }}
+
 ---

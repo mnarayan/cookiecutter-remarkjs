@@ -6,19 +6,19 @@ class: center, middle, inverse
 
 # {{ cookiecutter.presentation_title }}
 ## {{ cookiecutter.presentation_subtitle }}
+### {{ cookiecutter.author_name }}
 
 ---
 
 layout: false
 
-## No mermaid layout
+# The Main Point Is ...
 
 ---
 
-layout: true
 
 # The End
 
-Follow me on {{ cookiecutter.twitter_account }}
+Follow me on [twitter](https://twitter.com/{{ cookiecutter.twitter_account }}) @{{ cookiecutter.twitter_account }}
 
 ---

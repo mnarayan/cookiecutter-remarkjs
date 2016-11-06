@@ -1,6 +1,6 @@
 BIND_ADDRESS ?= 127.0.0.1
 PORT ?= 8000
-GITHUB_REPO ?= mnarayan/{{ cookiecutter.project_slug }}
+GITHUB_REPO ?= mnarayan/{{ cookiecutter.project_repo }}
 
 .DEFAULT_GOAL := help
 

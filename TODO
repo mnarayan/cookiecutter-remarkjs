@@ -1,0 +1,6 @@
+- Add a robots.txt
+- Update with boilerplate-* templates from remarkjs
+- Add in options to serve remarkjs locally
+- Add in Jonathan Lilly's template for slides
+- Split up project_repo Makefile for develop branch and gh-pages branch
+

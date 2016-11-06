@@ -1,6 +1,6 @@
 BIND_ADDRESS ?= 127.0.0.1
 PORT ?= 8000
-GITHUB_REPO ?= {{ cookiecutter.github }}/{{ cookiecutter.project_repo }}
+GITHUB_REPO ?= {{ cookiecutter.github_account }}/{{ cookiecutter.project_repo }}
 
 .DEFAULT_GOAL := help
 
@@ -23,18 +23,36 @@ serve: ## Serve the slides
 	@echo "Quit the server with CONTROL-C."
 	@python -m http.server --bind $(BIND_ADDRESS) $(PORT)
 
-gh-pages: ## Create gh-pages branch
+new-gh-pages: ## Create gh-pages branch
 	@echo "Initializing git"
 	@git init
 	@echo "Adding remote git@github.com:$(GITHUB_REPO)"
 	@git remote add origin git@github.com:$(GITHUB_REPO)
 	@echo "Creating gh-pages branch"
-	@git checkout -b --orphan gh-pages
+	@git checkout -b  gh-pages
 	@echo "Adding files to gh-pages"
 	@git add slides.md slides.css index.html 
-	@git commit -m "Adding default flies from cookiecutter template in {{ cookiecutter.project_repo }}"
+	@git commit -m "Adding default files from cookiecutter template in {{ cookiecutter.project_repo }}"
 
-
+update-gh-pages: ## Update existing gh-pages branch
+	@echo "Initializing git"
+	@git init
+	@echo "Adding remote git@github.com:$(GITHUB_REPO)"
+	@git remote add origin git@github.com:$(GITHUB_REPO)
+	@echo "Creating gh-pages branch"
+	@git checkout -b  gh-pages
+	@echo "Adding files to gh-pages"
+	@git add slides.md slides.css index.html 
+	@git commit -m "Adding default files from cookiecutter template in {{ cookiecutter.project_repo }}"
+	@echo "Fetching existing gh-pages"
+	@git fetch origin gh-pages
+	@echo "Checking origin/gh-pages"
+	@git checkout origin/gh-pages
+	@git checkout -b rebase-gh-pages
+	@git checkout gh-pages slides.md slides.css index.html
+	@git commit -m "Updating gh-pages with latest files from cookiecutter template in {{ cookiecutter.project_repo }}"
+    
+    
 pages: ## Push to github
 	@echo "Pushing slides to git@github.com:$(GITHUB_REPO) gh-pages"
 	@git push origin gh-pages

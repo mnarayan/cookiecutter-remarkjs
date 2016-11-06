@@ -1,9 +1,15 @@
 {
-    "presentation_name": "My Presentation",
-    "project_slug": "{{ cookiecutter.presentation_name | lower | replace(' ', '-') }}",
+    "presentation_title": "My Presentation",
+    "project_slug": "{{ cookiecutter.presentation_title | lower | replace(' ', '-') }}",
     "mermaid": ["true", "false"],
     "highlight_language": "python",
     "highlight_style": "monokai",
     "highlight_lines": ["true", "false"],
-    "aspect_ratio": ["4:3", "16:9", "16:10"]
+    "aspect_ratio": ["4:3", "16:9", "16:10"],
+    "presentation_subtitle": "The subtitle is displayed right below the title",
+    "presentation_description": "A longer description of your presentation",
+    "presentation_language": "en",
+    "author_name": "Grace Hopper",
+    "twitter_account": "gwc",
+    "github_account": "mnarayan"
 }

@@ -1,6 +1,8 @@
 BIND_ADDRESS ?= 127.0.0.1
 PORT ?= 8000
 GITHUB_REPO ?= {{ cookiecutter.github_account }}/{{ cookiecutter.project_repo }}
+DECKTAPE=decktape
+URLPATH=https://{{ cookiecutter.github_account }}.github.io/{{ cookiecutter.project_dir }}
 
 .DEFAULT_GOAL := help
 
@@ -51,8 +53,11 @@ update-gh-pages: ## Update existing gh-pages branch
 	@git checkout -b rebase-gh-pages
 	@git checkout gh-pages slides.md slides.css index.html
 	@git commit -m "Updating gh-pages with latest files from cookiecutter template in {{ cookiecutter.project_repo }}"
-    
-    
+        
 pages: ## Push to github
 	@echo "Pushing slides to git@github.com:$(GITHUB_REPO) gh-pages"
 	@git push origin gh-pages
+
+export: ## Export to pdf using decktape
+	${DECKTAPE}/phantomjs ${DECKTAPE}/decktape.js -s 1280x720 remark ${URLPATH}/{{ cookiecutter.project_repo }}/ {{ cookiecutter.project_repo }}.pdf
+	

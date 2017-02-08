@@ -2,6 +2,7 @@
     "presentation_title": "My Presentation",
     "project_repo": "{{ cookiecutter.presentation_title | lower | replace(' ', '-') }}",
     "mermaid": ["true", "false"],
+		"decktape": ["true", "false"],
     "highlight_language": "python",
     "highlight_style": "monokai",
     "highlight_lines": ["true", "false"],
